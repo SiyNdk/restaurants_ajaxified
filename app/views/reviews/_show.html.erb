@@ -1,0 +1,4 @@
+<p id="review-<%= review.id %>">
+  <%= review.content %>
+  <%= link_to 'Delete', restaurant_review_path(review.restaurant, review), method: :delete, remote: true %>
+</p>

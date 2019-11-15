@@ -1,0 +1,18 @@
+<h1><%= @restaurant.name %></h1>
+  
+<div id="reviews">
+  <% if @restaurant.reviews.empty? %>
+
+    <p><em>There are no reviews yet. be the first to create one.</em></p>
+
+  <% else %>
+
+    <% @restaurant.reviews.each do |review| %>
+      <%= render '/reviews/show', review: review %>
+    <% end %>
+
+  <% end %>
+</div>
+
+
+<%= render 'reviews/form', restaurant: @restaurant, review: @review %>

@@ -1,0 +1,25 @@
+console.log('review created: <%= @review.content %>');
+
+// get the content of the review
+
+
+
+
+<% if @review.errors.any? %>
+  newReviewForm = document.getElementById('new_review');
+  formHtml = "<%= j render 'reviews/form', restaurant: @restaurant, review: @review %>"
+  newReviewForm.innerHTML = formHtml;
+<% else %>
+  // get the element with the list of reviews
+  reviewsElement = document.getElementById('reviews')
+  // generate the html for a review
+  reviewHtml = "<%= j render 'reviews/show', review: @review %>"
+  // inject the content in the html before end of list of reviews
+  reviewsElement.insertAdjacentHTML('beforeend', reviewHtml);
+  // clear the input
+  
+  newReviewForm = document.getElementById('new_review');
+  formHtml = "<%= j render 'reviews/form', restaurant: @restaurant, review: Review.new %>"
+  newReviewForm.innerHTML = formHtml;
+
+<% end %>
